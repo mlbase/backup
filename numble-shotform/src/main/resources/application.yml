@@ -1,0 +1,62 @@
+spring:
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: false
+    defer-datasource-initialization: true
+    profiles:
+      active: true
+    database: mysql
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    url: jdbc:mysql://localhost:3306/video
+    #      jdbc:mysql://short-form.c9gpvkyx6ehe.ap-northeast-2.rds.amazonaws.com/short_form
+    #      url: jdbc:mysql://localhost:3306/video
+    username: root
+    password: mysql
+    #      username: admin
+    #      password: 1234qwer!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  redis:
+    host: localhost
+    port: 6379
+
+
+
+jwt:
+  secret: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHN
+springfox:
+  documentation:
+    swagger:
+      use-model-v3: false
+
+server:
+  port: 8081
+file:
+  dir:
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: ERROR
+cloud:
+  aws:
+    s3:
+      bucket : oz-s3-bucket
+    credentials:
+      access-key: AKIA5SJUPZ5LG7AVCRIQ
+      secret-key:  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
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
